@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.pixabay.com/photo/2017/02/24/02/37/classroom-2093744_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(243, 239, 237);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            background-color: rgb(117, 68, 3);
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 100px); /* Full height minus margin from the heading */
+        }
+
+        nav a {
+            display: block;
+            margin: 10px 0;
+            padding: 15px 30px;
+            background-color: rgba(76, 175, 80, 0.9); /* Semi-transparent green */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 250px; /* Fixed width for uniform button size */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(69, 160, 73, 1); /* Slightly darker green */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Student Information System</h1>
+    <nav>
+        <a href="{{ url_for('students') }}">Students</a>
+        <a href="{{ url_for('courses') }}">Courses</a>
+        <a href="{{ url_for('enrollments') }}">Enrollments</a>
+        <a href="{{ url_for('grades') }}">Grades</a>
+    </nav>
+    <footer>
+        © 2024 Student Information System
+    </footer>
+</body>
+</html>

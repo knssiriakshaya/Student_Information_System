@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll a Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enroll a Student</h1>
+    <form action="{{ url_for('add_enrollment') }}" method="post">
+        <div class="form-group">
+            <label for="id">Enrollment ID:</label>
+            <input id="id" name="id" type="text" required >
+        </div>
+
+        <div class="form-group">
+            <label for="student_id">Student:</label>
+            <select id="student_id" name="student_id" required>
+                {% for student in students %}
+                <option value="{{ student[0] }}">{{ student[1] }} (ID: {{ student[0] }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="course_id">Course:</label>
+            <select id="course_id" name="course_id" required>
+                {% for course in courses %}
+                <option value="{{ course[0] }}">{{ course[1] }} (Course ID: {{ course[0] }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input id="date" name="date" type="text" required>
+        </div>
+
+        <div class="button-container">
+            <button type="submit">Add Enrollment</button>
+        </div>
+    </form>
+
+    <div class="button-container">
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>
